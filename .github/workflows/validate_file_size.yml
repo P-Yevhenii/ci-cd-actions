@@ -16,13 +16,16 @@ jobs:
           minimumsize=1
           for filename in $GITHUB_WORKSPACE/artifacts/*.txt; do
             actualsize=$(du -k "$filename" | cut -f 1)
-            if [ $actualsize -ge $minimumsize ]; then
+            if [ $actualsize -gt $minimumsize ]; then
               echo Artifact file size exceeded: $filename;
               echo Current $filename size: $actualsize;
               echo Mamimum artifact size: $maximumsize;
               exit 1
             else
-              echo size is under $minimumsize Kbytes
+              echo Artifact file size exceeded: $filename;
+              echo Current $filename size: $actualsize;
+              echo Mamimum artifact size: $maximumsize;
+              exit 1
             fi
           done
 
