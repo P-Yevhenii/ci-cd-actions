@@ -10,7 +10,7 @@ jobs:
       - name: Check file size
         run: |
           touch $GITHUB_WORKSPACE/artifacts/test.txt
-          echo "dslfjalsdjflasjdfljasdlfjlsdjflaksjdf;lajdslf;jsa;fjd;aljsafljdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" > test.txt
+          echo "dslfjalsdjflasjdfljasdfssdfsdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsdlfjlsdjflaksjdf;lajdslf;jsa;fjd;aljsafljdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" > test.txt
           echo "writed to file "
 
           minimumsize=1
