@@ -13,8 +13,10 @@ jobs:
         run: |
           for filename in artifacts/*.wasm; do
             if [ -n "$(find "$filename" -prune -size +100000000)"]; then
-              error
+              Err
             else
               printf '%s is less than 1MB'
             fi
           done
+
+
