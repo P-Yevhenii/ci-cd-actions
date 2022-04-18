@@ -9,8 +9,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check file size
         run: |
-          if [ -n "$(find artifacts/ -prune -size +10000000)"]; then
-            printf '%s is larger than 1Mb'
-          else
-            printf '%s is less than 1MB'
-          fi
+          for filename in artifacts/*.wasm; do
+            if [ -n "$(find "$filename" -prune -size +10000000)"]; then
+              printf '%s is larger than 1Mb'
+            else
+              printf '%s is less than 1MB'
+            fi
+          done
