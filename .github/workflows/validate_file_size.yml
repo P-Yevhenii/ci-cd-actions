@@ -11,11 +11,13 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check file size
         run: |
+          minimumsize=1000
           for filename in artifacts/*.wasm; do
-            if [ -n "$(find "$filename" -prune -size +100000000)"]; then
-              Err
+            actualsize=$(wc -c <"$filename")
+            if [ $actualsize -ge $minimumsize ]; then
+              echo size if over $minimumsize bytes
             else
-              printf '%s is less than 1MB'
+              echo size is under $minimumsize bytes
             fi
           done
 
