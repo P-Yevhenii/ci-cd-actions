@@ -11,11 +11,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check file size
         run: |
-          minimumsize=10
+          minimumsize=1
           for filename in artifacts/*.txt; do
             actualsize=$(du -k "$filename" | cut -f 1)
             if [ $actualsize -ge $minimumsize ]; then
-              echo 'size of $filename over $minimumsize Kbytes'
+              echo size of $filename over $minimumsize Kbytes
               exit 1
             else
               echo size is under $minimumsize Kbytes
