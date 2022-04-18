@@ -6,14 +6,13 @@ jobs:
   validate-file-size:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Create files for test
+      - uses: actions/checkout@v
+      - name: Check file size
         run: |
           touch $GITHUB_WORKSPACE/artifacts/test.txt
           echo "dslfjalsdjflasjdfljasdlfjlsdjflaksjdf;lajdslf;jsa;fjd;aljsafljdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" > test.txt
-      - uses: actions/checkout@v2
-      - name: Check file size
-        run: |
+          echo "writed to file "
+
           minimumsize=1
           for filename in $GITHUB_WORKSPACE/artifacts/*.txt; do
             actualsize=$(du -k "$filename" | cut -f 1)
