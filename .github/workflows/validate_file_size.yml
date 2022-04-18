@@ -10,7 +10,7 @@ jobs:
       - name: Check file size
         run: |
           for filename in artifacts/*.wasm; do
-            if [ -n "$(find "$filename" -prune -size)"] > 1000000; then
+            if $(stat -c%s "$filename") > 1000000; then
               printf '%s is larger than 1Mb'
             else
               printf '%s is less than 1MB'
