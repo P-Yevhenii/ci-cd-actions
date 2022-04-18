@@ -1,8 +1,6 @@
 name: Validate file size
 on:
-  push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
   validate-file-size:
