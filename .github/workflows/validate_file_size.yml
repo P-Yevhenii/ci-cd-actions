@@ -13,7 +13,7 @@ jobs:
         run: |
           minimumsize=10
           for filename in artifacts/*.wasm; do
-            actualsize=$(wc -c <"$filename")
+            actualsize=$(du -k "$filename" | cut -f 1)
             if [ $actualsize -ge $minimumsize ]; then
               echo size if over $minimumsize bytes
             else
