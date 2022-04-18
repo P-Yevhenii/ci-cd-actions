@@ -9,4 +9,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check file size
         run: |
-          0 < ls -l -s README.md
+          if [ -n "$(find -prune -size +10000000)"]; then
+            printf '%s is larger than 1Mb'
+          fi
