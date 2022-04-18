@@ -1,6 +1,8 @@
 name: Validate file size
 on:
   push:
+    branches:
+      - main
 
 jobs:
   validate-file-size:
@@ -11,7 +13,7 @@ jobs:
         run: |
           for filename in artifacts/*.wasm; do
             if $(stat -c%s "$filename") > 1000000; then
-              printf '%s is larger than 1Mb'
+              error
             else
               printf '%s is less than 1MB'
             fi
