@@ -1,0 +1,12 @@
+name: Validate file size
+on:
+  push:
+
+jobs:
+  validate-file-size:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check file size
+        run: |
+          ls -l -s README.md
