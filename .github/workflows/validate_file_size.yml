@@ -9,15 +9,19 @@ jobs:
       - uses: actions/checkout@v2
       - name: Check file size
         run: |
-          minimumsize=4
-          for filename in artifacts/*.txt; do
+          minimumsize=10
+          for filename in $GITHUB_WORKSPACE/artifacts/*.txt; do
             actualsize=$(du -k "$filename" | cut -f 1)
-            echo actual size is $actualsize
             if [ $actualsize -gt $minimumsize ]; then
-              echo size of $filename over $minimumsize Kbytes
+              echo Artifact file size exceeded: $filename
+              echo Current $filename size: $actualsize
+              echo Mamimum artifact size: $maximumsize
               exit 1
             else
-              echo size is under $minimumsize Kbytes
+              echo Artifact file size normal: $filename
+              echo Artifact size: $actualsize
+              echo "Mamimum artifact size: $maximumsize"
+              exit 1
             fi
           done
 
