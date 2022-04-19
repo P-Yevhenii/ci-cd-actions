@@ -18,9 +18,9 @@ jobs:
               echo Mamimum artifact size: $maximumsize
               exit 1
             else
-              echo Artifact file size exceeded: $filename
+              echo Artifact file size normal: $filename
               echo Artifact size: $actualsize
-              echo Mamimum artifact size: $maximumsize
+              echo "Mamimum artifact size: $maximumsize"
               exit 1
             fi
           done
